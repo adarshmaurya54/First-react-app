@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 export default function Navbar(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "#16181d"}}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">{props.title}</a>
+          <a className="navbar-brand fw-bold" style={{letterSpacing: "2px"}} href="/">{props.title}</a>
           <button className="shadow-none navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
