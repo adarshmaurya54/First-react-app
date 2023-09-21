@@ -5,10 +5,10 @@
 }
 .preview {
   position: relative;
-  white-space: pre-line;
   min-height: 95%;
 }
 .previewText pre{
+  white-space: pre-line;
   max-height: 300px;
 }
 .preview, .previewText{
