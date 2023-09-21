@@ -5,8 +5,7 @@ import PropTypes from 'prop-types'
 export default function Preview(props) {
     const [blickCursor, setCursor] = useState({
         display : "inline-block",
-        opacity : "1",
-        marginLeft: "-8px"
+        opacity : "1"
     })
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -40,7 +39,7 @@ export default function Preview(props) {
                     </div>
                 </div>
                 <div className="w-100 mb-3 border border-dark text-white p-2 pt-4 rounded previewText">
-                    <pre>{props.text} <p style={blickCursor}>|</p></pre>
+                    <pre><span style={{marginRight: props.margin}}>{props.text}</span> <p style={blickCursor}>|</p></pre>
                 </div>
             </>
         </div>

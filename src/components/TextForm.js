@@ -3,11 +3,20 @@ import Preview from "./Preview";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
+  const [marginSet, setMargin] = useState("0px");
   const [len, setlen] = useState("");
+
   // use to update the text inputted in text box
   const updateText = (e) => {
     setText(e.target.value);
-  };
+    if(text.trim() !== ''){
+      setMargin("-8px");
+      // if textbox's text clear by backspace key then we have to re check if textfiled value is empty or not
+      if(e.target.value.trim() === ''){
+        setMargin("0px");
+      }
+    }
+  };  
 
   const speak = () => {
     if ('speechSynthesis' in window) {
@@ -164,7 +173,7 @@ export default function TextForm(props) {
           <p className="badge bg-light text-dark fs-6">
             {wordReadTime.toFixed(2) + " seconds takes to read."}
           </p>
-          <Preview title="Preview.txt" text={text}/>
+          <Preview title="Preview.txt" margin={marginSet} text={text}/>
         </div>
       </div>
     </>
