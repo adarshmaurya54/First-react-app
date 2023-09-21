@@ -8,7 +8,7 @@ export default function About() {
     })
     const [darkModeText, setDarkModeText] = useState("Enable Dark Mode")
     const enableDarkMode = () => {
-        if(css.color == "white"){
+        if(css.color === "white"){
             setcss({
                 color: "black",
                 backgroundColor: "white",

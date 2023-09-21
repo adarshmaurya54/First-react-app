@@ -56,6 +56,12 @@ export default function TextForm(props) {
     setText(capitalizedWords.join(" "));
   };
 
+  // This function is used to remove the extra space between two words
+  function handleExtraSpaces(){
+    const words = text.split(/[ ]+/);
+    setText(words.join(" "))
+  }
+
   // this function is used to count then number of words entered in the text box field
   function countWordsExcludingSpacesAndNewlinesAtEnd(text) {
     let wordlen = text.split(" ").length - 1;
@@ -118,6 +124,12 @@ export default function TextForm(props) {
             className="btn btn-outline-success shadow-none me-2 mb-2"
           >
             Speak
+          </button>
+          <button
+            onClick={handleExtraSpaces}
+            className="btn btn-outline-success shadow-none me-2 mb-2"
+          >
+            Remove Extra Spaces
           </button>
           <button
             onClick={() => {
