@@ -1,10 +1,11 @@
 import "./App.css";
-import Navbar from "./components/navbar";
-import TextForm from "./components/TextForm";
+import About from "./components/about.js";
+import Navbar from "./components/navbar.js";
 function App() {
   return <>
-    <Navbar title="TextUtil" about={{link: "https://www.google.com",text: "About"}}/>
-    <TextForm FormTitle="Enter text below for analizing..."/>
+     <Navbar title="TextUtil" about={{link: "https://www.google.com",text: "About"}}/>
+    {/*<TextForm FormTitle="Enter text below for analizing..."/> */}
+    <About/>
   </>;
 }
 

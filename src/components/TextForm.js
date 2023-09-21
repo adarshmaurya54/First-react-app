@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Preview from "./Preview";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
@@ -151,27 +152,7 @@ export default function TextForm(props) {
           <p className="badge bg-light text-dark fs-6">
             {wordReadTime.toFixed(2) + " seconds takes to read."}
           </p>
-          <div className="preview">
-            <div className="upper-btns">
-              <div title="Close" className="close btn1"></div>
-              <div
-                title="Minimise, which is currently not working yet :("
-                className="mini btn1"
-              ></div>
-              <div
-                title="Maximize, which is currently not working yet :("
-                className="maxi btn1"
-              ></div>
-            </div>
-            <div className="text">
-              <div className="text-center">
-                <pre>Preview.txt</pre>
-              </div>
-            </div>
-          </div>
-          <div className="w-100 border border-dark text-white p-2 pt-4 rounded previewText">
-            <pre>{text}</pre>
-          </div>
+          <Preview title="Preview.txt" text={text}/>
         </div>
       </div>
     </>
