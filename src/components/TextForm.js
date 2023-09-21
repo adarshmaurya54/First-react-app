@@ -12,7 +12,7 @@ export default function TextForm(props) {
     if(text.trim() !== ''){
       setMargin("-8px");
       // if textbox's text clear by backspace key then we have to re check if textfiled value is empty or not
-      if(e.target.value.trim() === ''){
+      if(text.trim() === ''){
         setMargin("0px");
       }
     }
