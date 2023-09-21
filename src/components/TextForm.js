@@ -149,7 +149,7 @@ export default function TextForm(props) {
           >
             Clear All
           </button>
-          <p id="email" className="my-2">
+          <p id="email" style={{overflowWrap: "break-word"}} className="my-2">
 
           </p>
         </div>
