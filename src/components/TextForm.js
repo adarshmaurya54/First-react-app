@@ -9,9 +9,27 @@ export default function TextForm(props) {
   };
 
   const speak = () => {
-    let msg = new SpeechSynthesisUtterance();
-    msg.text = text;
-    window.speechSynthesis.speak(msg);
+    if ('speechSynthesis' in window) {
+      const synth = window.speechSynthesis;
+  
+      // Get the list of available voices
+      const voices = synth.getVoices();
+  
+      // Find and select an Indian voice (e.g., Hindi or another regional language)
+      const indianVoice = voices.find(voice => voice.lang.includes('hi')); // 'hi' is the language code for Hindi
+  
+      if (indianVoice) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.voice = indianVoice;
+  
+        // Speak the text with the selected Indian voice
+        synth.speak(utterance);
+      } else {
+        console.log('Indian voice not found.');
+      }
+    } else {
+      console.log('Speech synthesis not supported in this browser.');
+    }
   }
 
   // email extractor from the given text
@@ -93,6 +111,12 @@ export default function TextForm(props) {
             className="btn btn-outline-success shadow-none me-2 mb-2"
           >
             Extract Email
+          </button>
+          <button
+            onClick={speak}
+            className="btn btn-outline-success shadow-none me-2 mb-2"
+          >
+            Speak
           </button>
           <button
             onClick={() => {
