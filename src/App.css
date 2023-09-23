@@ -7,6 +7,9 @@
   position: relative;
   min-height: 95%;
 }
+.preview textarea::-webkit-scrollbar{
+  display: none;
+}
 .previewText pre{
   white-space: pre-line;
   padding-left: 5px;
@@ -55,12 +58,22 @@
 }
 .text{
   position: absolute;
-  top: 7px;
+  height: 12%;
+  top: 1px;
   left: 0px;
   width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.text .text-center{
+  padding-top: 7px;
+  background-color: #282c34;
+  width: 98%;
 }
 
 .upper-btns .btn1 {
+  z-index: 2;
   width: 10px!important;
   height: 10px!important;
   border-radius: 50%;
