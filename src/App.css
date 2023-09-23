@@ -9,6 +9,8 @@
 }
 .previewText pre{
   white-space: pre-line;
+  padding-left: 5px;
+  padding-top: 5px;
   max-height: 300px;
 }
 .preview, .previewText{
@@ -16,22 +18,48 @@
   color: white;
 }
 
+.swithcbtn{
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.swithcbtn input{
+  opacity: 0;
+  z-index: 2;
+  position: relative;
+  margin-top: 0px;
+  cursor: pointer;
+}
+.swithcbtn label{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
 .upper-btns{
+  margin-left: 1px;
+  margin-top: 1px;
+  background: #282c34;
   height: 5%;
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 100%;
+  top: 2px;
+  left: 3px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 50%;
   display: flex;
   gap: 5px;
   align-items: center;
 }
 .text{
   position: absolute;
-  top: 0px;
+  top: 7px;
   left: 0px;
   width: 100%;
 }
+
 .upper-btns .btn1 {
   width: 10px!important;
   height: 10px!important;

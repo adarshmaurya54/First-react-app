@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 export default function Navbar(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "#16181d"}}>
+      <nav className={`navbar shadow navbar-expand-lg navbar-${props.mode.classname}`} style={{ backgroundColor: props.mode.colorCode}}>
         <div className="container-fluid">
-          <a className="navbar-brand fw-bold" style={{letterSpacing: "2px"}} href="/">{props.title}</a>
+          <a className="navbar-brand fw-bold" style={{ letterSpacing: "2px" }} href="/">{props.title}</a>
           <button className="shadow-none navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -19,10 +19,10 @@ export default function Navbar(props) {
                 <a className="nav-link" href={props.about.link}>{props.about.text}</a>
               </li>
             </ul>
-            <form className="d-flex">
-              <input className="form-control shadow-none me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success shadow-none" type="submit">Search</button>
-            </form>
+            <div className="fs-4 my-2 form-check form-switch swithcbtn">
+              <input onClick={props.toggleDarkmode} className="form-check-input shadow-none" type="checkbox" />
+              <label className="form-check-label">{(props.mode.classname === "dark") ? <i className="bi bi-brightness-low-fill text-light fs-3"></i>: <i className=" fs-4 text-dark bi bi-moon-stars-fill"></i>}</label>
+            </div>
           </div>
         </div>
       </nav>
@@ -33,12 +33,12 @@ export default function Navbar(props) {
 
 // This specifies the type of data that a property can accept.
 Navbar.propTypes = {
-    title: PropTypes.string.isRequired,
-    about: PropTypes.object.isRequired
+  title: PropTypes.string.isRequired,
+  about: PropTypes.object.isRequired
 }
 
 //This provides default values to the props
 Navbar.defaultProps = {
   title: "TextUtil",
-  about: {link: "https://www.google.com", text: "About"}
+  about: { link: "https://www.google.com", text: "About" }
 }
