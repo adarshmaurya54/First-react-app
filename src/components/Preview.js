@@ -3,15 +3,13 @@ import PropTypes from 'prop-types'
 
 
 export default function Preview(props) {
-
-    let intervalId = null;
     const [blickCursor, setCursor] = useState({
         display: "inline-block",
         opacity: "1"
     })
     // Select the div element by its ID
     var myDiv = document.getElementById("preview");
-    if(myDiv != null){
+    if(myDiv !== null){
         myDiv.scrollTop = myDiv.scrollHeight;
     }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Preview from "./Preview";
 
 export default function TextForm(props) {
@@ -84,7 +84,7 @@ export default function TextForm(props) {
   return (
     
     <>
-      <div className={`container ${(props.mode.classname == "dark") ? "text-white" : "text-dark"}`}>
+      <div className={`container ${(props.mode.classname === "dark") ? "text-white" : "text-dark"}`}>
         <div className="p-3 shadow my-3 rounded">
           <h1 className="my-3 border-bottom border-dark pb-2">
             {props.FormTitle}
@@ -113,7 +113,7 @@ export default function TextForm(props) {
             onClick={() => {
               setText(text.toUpperCase());
             }}
-            className={`btn btn-outline-${(props.mode.classname == "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
+            className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
             Uppercase
           </button>
@@ -121,31 +121,31 @@ export default function TextForm(props) {
             onClick={() => {
               setText(text.toLowerCase());
             }}
-            className={`btn btn-outline-${(props.mode.classname == "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
+            className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
             Lowercase
           </button>
           <button
             onClick={handleCaptText}
-            className={`btn btn-outline-${(props.mode.classname == "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
+            className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
             Capitalize
           </button>
           <button
             onClick={emailPrint}
-            className={`btn btn-outline-${(props.mode.classname == "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
+            className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
             Extract Email
           </button>
           <button
             onClick={speak}
-            className={`btn btn-outline-${(props.mode.classname == "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
+            className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
             Speak
           </button>
           <button
             onClick={handleExtraSpaces}
-            className={`btn btn-outline-${(props.mode.classname == "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
+            className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
             Remove Extra Spaces
           </button>
