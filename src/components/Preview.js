@@ -9,6 +9,11 @@ export default function Preview(props) {
         display: "inline-block",
         opacity: "1"
     })
+    // Select the div element by its ID
+    var myDiv = document.getElementById("preview");
+    if(myDiv != null){
+        myDiv.scrollTop = myDiv.scrollHeight;
+    }
 
     const [darkmode, setdarkmode] = useState("");
 
@@ -31,7 +36,6 @@ export default function Preview(props) {
             clearInterval(intervalId);
         };
     }, [props]);
-    console.log(darkmode)
     return (
         <>
             <div className={`preview ${(darkmode === "dark") ? "border-top border-3 rounded-top" : ""}`}>
@@ -53,7 +57,7 @@ export default function Preview(props) {
                 </div>
             </div>
             <div className={`w-100 mb-3 text-white p-2 pt-4 ${(darkmode === "dark") ? "rounded-bottom" : "rounded"} previewText`}>
-                <pre><span style={{ marginRight: props.margin }}>{props.text}</span> <p id='cursor' style={blickCursor}>|</p></pre>
+                <pre id='preview'><span style={{ marginRight: props.margin }}>{props.text}</span> <p id='cursor' style={blickCursor}>|</p></pre>
             </div>
         </>
     )

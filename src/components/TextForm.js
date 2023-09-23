@@ -12,7 +12,7 @@ export default function TextForm(props) {
     setText(e.target.value);
     // Check if the textarea is empty or Ctrl+Backspace is pressed (key code 8)
     if (e.target.value.trim() === '' || (e.ctrlKey && e.keyCode === 8)) {
-      setMargin("0px");
+      setMargin("2px");
     } else {
       setMargin("-8px");
     }
