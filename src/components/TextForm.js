@@ -17,7 +17,22 @@ export default function TextForm(props) {
       setMargin("-8px");
     }
   };
+  // Function to copy text to clipboard
+  function copyToClipboard() {
+    // Get the textarea element
+    const textarea = document.querySelector("textarea");
 
+    // Select the text inside the textarea
+    textarea.select();
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Deselect the text
+    textarea.setSelectionRange(0, 0);
+    props.alertFunc("Text is copied to clipboard","success");
+
+  }
   const speak = () => {
     if ('speechSynthesis' in window) {
       const synth = window.speechSynthesis;
@@ -34,6 +49,11 @@ export default function TextForm(props) {
 
         // Speak the text with the selected Indian voice
         synth.speak(utterance);
+        if (text.trim() == '') {
+          props.alertFunc("Please enter some text", "danger");
+        } else {
+          props.alertFunc("Speaking is on", "success");
+        }
       } else {
         console.log('Indian voice not found.');
       }
@@ -46,6 +66,7 @@ export default function TextForm(props) {
   const emailPrint = () => {
     const email = extractEmails();
     document.getElementById("email").innerHTML = "<b>Email : </b>" + email;
+    props.alertFunc("Email is extracted from your given text.", "success");
   }
   const extractEmails = () => {
     const emailRegex = /[\w.-]+@[\w.-]+\.[A-Za-z]{2,}/g;
@@ -63,12 +84,14 @@ export default function TextForm(props) {
       }
     });
     setText(capitalizedWords.join(" "));
+    props.alertFunc("Text Capitalized.", "success");
   };
 
   // This function is used to remove the extra space between two words
   function handleExtraSpaces() {
     const words = text.split(/[ ]+/);
     setText(words.join(" "))
+    props.alertFunc("Extra spaces are removed", "success");
   }
 
   // this function is used to count then number of words entered in the text box field
@@ -82,7 +105,7 @@ export default function TextForm(props) {
   let wordReadTime = (0.004 * countWordsExcludingSpacesAndNewlinesAtEnd(text)) * 60;
 
   return (
-    
+
     <>
       <div className={`container ${(props.mode.classname === "dark") ? "text-white" : "text-dark"}`}>
         <div className="p-3 shadow my-3 rounded">
@@ -106,12 +129,13 @@ export default function TextForm(props) {
                 <pre>Text.txt</pre>
               </div>
             </div>
-            <textarea spellCheck={false} onChange={updateText} value={text} placeholder="Enter your text here..." className="form-control shadow-none" style={{ resize: "none",     padding: "26px 11px 0px 11px", background: "transparent", color: "white" }} id="exampleFormControlTextarea1" rows="8"></textarea>
+            <textarea spellCheck={false} onChange={updateText} value={text} placeholder="Enter your text here..." className="form-control shadow-none" style={{ resize: "none", padding: "26px 11px 0px 11px", background: "transparent", color: "white" }} id="exampleFormControlTextarea1" rows="8"></textarea>
           </div>
           <p className="my-2">{len}</p>
           <button
             onClick={() => {
               setText(text.toUpperCase());
+              props.alertFunc("Your text is now in uppercase", "success");
             }}
             className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
@@ -120,6 +144,7 @@ export default function TextForm(props) {
           <button
             onClick={() => {
               setText(text.toLowerCase());
+              props.alertFunc("Your text is now in lowercase", "success");
             }}
             className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
           >
@@ -150,9 +175,16 @@ export default function TextForm(props) {
             Remove Extra Spaces
           </button>
           <button
+            onClick={copyToClipboard}
+            className={`btn btn-outline-${(props.mode.classname === "dark") ? "light" : "dark"} shadow-none me-2 mb-2`}
+          >
+            Copy to clipboard
+          </button>
+          <button
             onClick={() => {
               setlen("");
               setText("");
+              props.alertFunc("All text are cleared", "success");
             }}
             className="btn btn-outline-danger shadow-none me-2 mb-2"
           >

@@ -24,7 +24,7 @@
 .swithcbtn{
   position: relative;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .swithcbtn input{
@@ -90,4 +90,12 @@
 
 .maxi {
   background-color: #31bd43;
+}
+.alert{
+  position: fixed !important;
+  top: 31px;
+  z-index: 999999;
+  left: 50%;
+  transform: translate(-50%, -200%);
+  transition: transform 0.4s ease-in-out !important;
 }

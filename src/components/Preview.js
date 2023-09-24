@@ -7,12 +7,6 @@ export default function Preview(props) {
         display: "inline-block",
         opacity: "1"
     })
-    // Select the div element by its ID
-    var myDiv = document.getElementById("preview");
-    if(myDiv !== null){
-        myDiv.scrollTop = myDiv.scrollHeight;
-    }
-
     const [darkmode, setdarkmode] = useState("");
 
     useEffect(() => {
