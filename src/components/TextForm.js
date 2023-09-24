@@ -19,20 +19,24 @@ export default function TextForm(props) {
   };
   // Function to copy text to clipboard
   function copyToClipboard() {
-    // Get the textarea element
-    const textarea = document.querySelector("textarea");
+    if (text.trim() === '') {
+      props.alertFunc("Please enter some text to copy", "warning");
+    } else {
+      // Get the textarea element
+      const textarea = document.querySelector("textarea");
 
-    // Select the text inside the textarea
-    textarea.select();
+      // Select the text inside the textarea
+      textarea.select();
 
-    // Copy the selected text to the clipboard
-    document.execCommand("copy");
+      // Copy the selected text to the clipboard
+      document.execCommand("copy");
 
-    // Deselect the text
-    textarea.setSelectionRange(0, 0);
-    props.alertFunc("Text is copied to clipboard","success");
-
+      // Deselect the text
+      textarea.setSelectionRange(0, 0);
+      props.alertFunc("Text is copied to clipboard", "success");
+    }
   }
+  
   const speak = () => {
     if ('speechSynthesis' in window) {
       const synth = window.speechSynthesis;
@@ -49,7 +53,7 @@ export default function TextForm(props) {
 
         // Speak the text with the selected Indian voice
         synth.speak(utterance);
-        if (text.trim() == '') {
+        if (text.trim() === '') {
           props.alertFunc("Please enter some text", "danger");
         } else {
           props.alertFunc("Speaking is on", "success");

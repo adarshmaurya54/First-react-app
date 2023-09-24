@@ -92,7 +92,9 @@
   background-color: #31bd43;
 }
 .alert{
+  text-align: center;
   position: fixed !important;
+  min-width: 300px;
   top: 31px;
   z-index: 999999;
   left: 50%;
