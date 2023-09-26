@@ -32,8 +32,8 @@ export default function TextForm(props) {
       document.execCommand("copy");
 
       // Deselect the text
-      textarea.setSelectionRange(0, 0);
-      props.alertFunc("Text is copied to clipboard", "success");
+      textarea.setSelectionRange(text.length, text.length);
+      props.alertFunc("Copied to clipboard", "success");
     }
   }
   

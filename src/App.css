@@ -22,24 +22,19 @@
 }
 
 .swithcbtn{
-  position: relative;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
-.swithcbtn input{
-  opacity: 0;
-  z-index: 2;
-  position: relative;
-  margin-top: 0px;
-  cursor: pointer;
-}
 .swithcbtn label{
+  cursor: pointer;
+  /* margin-right: 40px; */
+}
+/* .swithcbtn label{
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-}
+} */
 .upper-btns{
   margin-left: 1px;
   margin-top: 1px;

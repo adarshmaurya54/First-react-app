@@ -2,9 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function Navbar(props) {
+  // function that show dark color as user's selection of color
+  const handleDarkColor = (e) => {
+    props.changDarkColor(e.target.value);
+  }
   return (
     <>
-      <nav className={`navbar shadow navbar-expand-lg navbar-${props.mode.classname}`} style={{ backgroundColor: props.mode.colorCode}}>
+      <nav className={`navbar sticky-top shadow navbar-expand-lg navbar-${props.mode.classname}`} style={{ backgroundColor: props.mode.colorCode }}>
         <div className="container-fluid">
           <a className="navbar-brand fw-bold" style={{ letterSpacing: "2px" }} href="/">{props.title}</a>
           <button className="shadow-none navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,9 +23,9 @@ export default function Navbar(props) {
                 <a className="nav-link" href={props.about.link}>{props.about.text}</a>
               </li>
             </ul>
-            <div className="fs-4 my-2 form-check form-switch swithcbtn">
-              <input onClick={props.toggleDarkmode} className="form-check-input shadow-none" type="checkbox" />
-              <label className="form-check-label">{(props.mode.classname === "dark") ? <i className="bi bi-brightness-low-fill text-light fs-3"></i>: <i className=" fs-4 text-dark bi bi-moon-stars-fill"></i>}</label>
+            <div className="fs-4 my-2 justify-content-lg-end swithcbtn gap-3 w-50">
+              <label onClick={props.toggleDarkmode} className={`order-lg-4 form-check-label`}>{(props.mode.classname === "dark") ? <i className="bi bi-brightness-low-fill text-light fs-3"></i> : <i className=" fs-4 text-dark bi bi-moon-stars-fill"></i>}</label>
+              <input type="color" onChange={handleDarkColor} className={`shadow-none d-${(props.mode.classname === "dark") ? "inline-block" : "none"} order-lg-2 form-control form-control-color`} title="Choose your color" />
             </div>
           </div>
         </div>
