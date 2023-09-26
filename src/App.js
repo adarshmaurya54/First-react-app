@@ -46,12 +46,12 @@ function App() {
     }
   }
   return <>
-    <Navbar title="TextUtil" mode={darkmode} changDarkColor={changDarkColor} toggleDarkmode={toggleDarkmode} about={{ link: "./about", text: "About" }} />
+    <Navbar title="TextUtil" mode={darkmode} changDarkColor={changDarkColor} toggleDarkmode={toggleDarkmode} about={{ link: "./First-react-app/about", text: "About" }} />
     <Alert alert={alert} />
 
     <Routes>
-      <Route path="/First-react-app/" element={<TextForm mode={darkmode} alertFunc={setAlertFunction} FormTitle="Enter text below for analizing..." />} />
-      <Route path="/First-react-app/about" element={<About />} />
+      <Route exact path="/" element={<TextForm mode={darkmode} alertFunc={setAlertFunction} FormTitle="Enter text below for analizing..." />} />
+      <Route exact path="/about" element={<About />} />
     </Routes>
 
   </>;
