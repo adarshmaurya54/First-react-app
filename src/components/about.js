@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 export default function About() {
+    document.title = "TextUtil - ABOUT PAGE"
     const [css, setcss] = useState({
         color: "black",
         backgroundColor: "white",

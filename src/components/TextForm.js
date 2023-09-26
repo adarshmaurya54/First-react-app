@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Preview from "./Preview";
 
 export default function TextForm(props) {
+  document.title = "TextUtil - HOME PAGE"
   const [marginSet, setMargin] = useState("0px");
   const [len, setlen] = useState("");
 
