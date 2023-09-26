@@ -50,8 +50,8 @@ function App() {
     <Alert alert={alert} />
 
     <Routes>
-      <Route exact path="/" element={<TextForm mode={darkmode} alertFunc={setAlertFunction} FormTitle="Enter text below for analizing..." />} />
-      <Route exact path="/about" element={<About />} />
+      <Route exact path="/First-react-app/" element={<TextForm mode={darkmode} alertFunc={setAlertFunction} FormTitle="Enter text below for analizing..." />} />
+      <Route exact path="/First-react-app/about" element={<About />} />
     </Routes>
 
   </>;
