@@ -50,8 +50,8 @@ function App() {
     <Alert alert={alert} />
 
     <Routes>
-      <Route path="/" element={<TextForm mode={darkmode} alertFunc={setAlertFunction} FormTitle="Enter text below for analizing..." />} />
-      <Route path="/about" element={<About />} />
+      <Route path="./" element={<TextForm mode={darkmode} alertFunc={setAlertFunction} FormTitle="Enter text below for analizing..." />} />
+      <Route path="./about" element={<About />} />
     </Routes>
 
   </>;
